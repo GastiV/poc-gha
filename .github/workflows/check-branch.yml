@@ -37,7 +37,8 @@ jobs:
     name: "branch eligibility"
     steps:
       - name: "Ensure branch name is main or hotfix-*"
-        if: ! github.ref == 'refs/heads/main' || ! startsWith(github.ref, 'refs/heads/hotfix-')
+        if: ${{ ! startsWith(github.ref, 'refs/heads/main') || ! startsWith(github.ref, 'refs/heads/hotfix-') }}
         run: |
+          echo "This branch is not eligible"
           exit 1
 
