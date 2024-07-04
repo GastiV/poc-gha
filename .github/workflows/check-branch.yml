@@ -40,5 +40,6 @@ jobs:
         if: ${{ ! startsWith(github.ref, 'refs/heads/main') || ! startsWith(github.ref, 'refs/heads/hotfix-') }}
         run: |
           echo "This branch is not eligible"
+          echo "github.ref is ${{ github.ref }}"
           exit 1
 
